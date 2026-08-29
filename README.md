@@ -2,10 +2,10 @@
 
 ---
 
-### **NAME:**  
-### **DEPARTMENT:**  
-### **ROLL NO:**  
-### **DATE OF EXPERIMENT:**  
+### **NAME:**  Pavithra P  
+### **DEPARTMENT:**  CSE(IOT)
+### **ROLL NO:**  212223110035
+### **DATE OF EXPERIMENT:**  29/08/2026
 
 ---
 
@@ -225,26 +225,37 @@ while True:
 
 
 ### FIGURE -08 Relay On Image
+<img width="1536" height="1536" alt="image" src="https://github.com/user-attachments/assets/1283d450-f85f-41d2-a2fc-5369b1b1c4bb" />
 
 ### FIGURE -09 LED On Image
+<img width="1536" height="1536" alt="image" src="https://github.com/user-attachments/assets/2e7d6bf1-89ac-4d80-abd3-28d6d966d219" />
 
 ### FIGURE -10 Buzzer On Image
+<img width="1536" height="1536" alt="image" src="https://github.com/user-attachments/assets/2e37b64a-72ba-4fe9-9921-1f849cc6ab8b" />
 
 ### FIGURE -11 Blynk App Screenshot for IR Sensor
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/ea64ab09-19df-4a9e-9b28-c6bb872e98cb" />
 
 ### FIGURE -12 Blynk App Screenshot for LDR Sensor
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/fa903f13-465b-4a70-8c72-febcc2a92e1e" />
 
 ### FIGURE -13 Blynk App Screenshot for Relay ON
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/d4d0e337-7b3f-4bc5-8d55-a84e5705f052" />
 
 ### FIGURE -11 Blynk App Screenshot for Relay OFF
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/03c4941b-9040-473f-a762-36a4acb20d2c" />
 
 ### FIGURE -12 Blynk App Screenshot for Buzzer ON
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/5c1d5375-09c4-442c-b4c5-1276ef0b0bea" />
 
 ### FIGURE -13 Blynk App Screenshot for Buzzer OFF
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/51d90025-1ea1-490a-8e56-548657507509" />
 
 ### FIGURE -14 Blynk App Screenshot for LED ON
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/7140e760-1636-47f9-b46f-5ada39c5742f" />
 
 ### FIGURE -15 Blynk App Screenshot for LED OFF
+<img width="728" height="1600" alt="image" src="https://github.com/user-attachments/assets/9829fd36-239b-473f-82cc-dd4915fc3b26" />
 
 
 
