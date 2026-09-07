@@ -209,17 +209,13 @@ import RPi.GPIO as GPIO
 import BlynkLib
 import time
 
-# Blynk Authentication Token
 BLYNK_AUTH = "otcDrsbp2U7Yhqn4L5GSTN7uYz4qlZf6"
 
-# GPIO Pin Definitions
 IR_PIN = 18
 LDR_PIN = 23
 RELAY = 12
 LED = 25
 BUZZER = 24
-
-# ---------------- GPIO SETUP ----------------
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -231,12 +227,10 @@ GPIO.setup(RELAY, GPIO.OUT)
 GPIO.setup(LED, GPIO.OUT)
 GPIO.setup(BUZZER, GPIO.OUT)
 
-# Initially OFF
 GPIO.output(RELAY, GPIO.LOW)
 GPIO.output(LED, GPIO.LOW)
 GPIO.output(BUZZER, GPIO.LOW)
 
-# ---------------- BLYNK CONNECTION ----------------
 
 while True:
     try:
@@ -256,7 +250,6 @@ while True:
         print("Retrying in 5 seconds...")
         time.sleep(5)
 
-# ---------------- MAIN LOOP ----------------
 
 try:
     while True:
@@ -270,7 +263,6 @@ try:
 
         print("IR:", ir_value, "LDR:", ldr_value)
 
-        # ---------------- IR AUTOMATION ----------------
 
         if ir_value == 1:
             GPIO.output(LED, GPIO.HIGH)
@@ -284,7 +276,6 @@ try:
 
             print("No IR -> LED OFF, Buzzer OFF")
 
-        # ---------------- LDR AUTOMATION ----------------
 
         if ldr_value == 1:
             GPIO.output(RELAY, GPIO.HIGH)
