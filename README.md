@@ -203,7 +203,119 @@ while True:
 
 ...
 ```
+## **Modified Code for Raspberry Pi + Blynk**  
 ---
+import RPi.GPIO as GPIO
+import BlynkLib
+import time
+
+# Blynk Authentication Token
+BLYNK_AUTH = "otcDrsbp2U7Yhqn4L5GSTN7uYz4qlZf6"
+
+# GPIO Pin Definitions
+IR_PIN = 18
+LDR_PIN = 23
+RELAY = 12
+LED = 25
+BUZZER = 24
+
+# ---------------- GPIO SETUP ----------------
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(IR_PIN, GPIO.IN)
+GPIO.setup(LDR_PIN, GPIO.IN)
+
+GPIO.setup(RELAY, GPIO.OUT)
+GPIO.setup(LED, GPIO.OUT)
+GPIO.setup(BUZZER, GPIO.OUT)
+
+# Initially OFF
+GPIO.output(RELAY, GPIO.LOW)
+GPIO.output(LED, GPIO.LOW)
+GPIO.output(BUZZER, GPIO.LOW)
+
+# ---------------- BLYNK CONNECTION ----------------
+
+while True:
+    try:
+        print("Connecting to Blynk...")
+
+        blynk = BlynkLib.Blynk(
+            BLYNK_AUTH,
+            server="blynk.cloud",
+            port=80
+        )
+
+        print("Connected to Blynk")
+        break
+
+    except Exception as e:
+        print("Blynk connection failed:", e)
+        print("Retrying in 5 seconds...")
+        time.sleep(5)
+
+# ---------------- MAIN LOOP ----------------
+
+try:
+    while True:
+
+        # Keep Blynk connection active
+        blynk.run()
+
+        # Read sensors
+        ir_value = GPIO.input(IR_PIN)
+        ldr_value = GPIO.input(LDR_PIN)
+
+        print("IR:", ir_value, "LDR:", ldr_value)
+
+        # ---------------- IR AUTOMATION ----------------
+
+        if ir_value == 1:
+            GPIO.output(LED, GPIO.HIGH)
+            GPIO.output(BUZZER, GPIO.HIGH)
+
+            print("IR detected -> LED ON, Buzzer ON")
+
+        else:
+            GPIO.output(LED, GPIO.LOW)
+            GPIO.output(BUZZER, GPIO.LOW)
+
+            print("No IR -> LED OFF, Buzzer OFF")
+
+        # ---------------- LDR AUTOMATION ----------------
+
+        if ldr_value == 1:
+            GPIO.output(RELAY, GPIO.HIGH)
+
+            print("LDR = 1 -> Relay ON")
+
+        else:
+            GPIO.output(RELAY, GPIO.LOW)
+
+            print("LDR = 0 -> Relay OFF")
+
+        # Send sensor values to Blynk
+        blynk.virtual_write(0, ir_value)
+        blynk.virtual_write(1, ldr_value)
+
+        time.sleep(1)
+
+except KeyboardInterrupt:
+    print("Program stopped by user")
+
+finally:
+
+    # Turn OFF outputs
+    GPIO.output(RELAY, GPIO.LOW)
+    GPIO.output(LED, GPIO.LOW)
+    GPIO.output(BUZZER, GPIO.LOW)
+
+    GPIO.cleanup()
+
+    print("GPIO cleaned up")
+    ```
 ## **Expected Output (Blynk App Interface)**
 ### **Learners should capture screenshots of the Blynk mobile application showing the following widgets:**
 ### **Screen 1 – Sensor Monitoring**
